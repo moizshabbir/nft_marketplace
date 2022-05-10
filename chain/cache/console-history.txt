@@ -1,0 +1,14 @@
+await nft.ownerOf(2)
+await nft.ownerOf(1)
+await nft.tokenURI(2)
+await nft.tokenURI(1)
+await nft.mintTo('0x9f84BF56CB031d0bE1ac8d6F96F2fE5A1571511c')
+await nft.name()
+nft = await ethers.getContractAt("BadgeToken", nftaddress)
+nftaddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
+exit
+await nft.tokenURI(1)
+await nft.mintTo('0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266')
+await nft.name()
+nft = await ethers.getContractAt("BadgeToken", nftaddress)
+nftaddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'

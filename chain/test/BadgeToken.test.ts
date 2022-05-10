@@ -2,8 +2,8 @@ import { expect } from "chai"
 import { Signer } from "ethers"
 import { ethers } from "hardhat"
 // import { BadgeToken } from  "../typechain"
-
-import base64 = require("base-64");
+const BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+var base64 = require("base-x")(BASE64)
 
 const _name='BadgeToken'
 const _symbol='BADGE'
@@ -30,13 +30,12 @@ describe("BadgeToken", function () {
 
     await badge.mintTo(address1)
     expect(await badge.ownerOf(2)).to.equal(address1)
-    expect(await badge.balanceOf(address1)).to.equal(2)
+    expect(await badge.balanceOf(address1)).to.equal(2);
   })
 
   it("Should mint a token with event", async function () {
     const address1=await account1.getAddress()
-    let to:any = await expect(badge.mintTo(address1)).to;
-    await to.emit(badge, 'Transfer')
+    await expect(badge.mintTo(address1)).to.emit(badge, 'Transfer')
       .withArgs(ethers.constants.AddressZero,address1, 1)
   })
 

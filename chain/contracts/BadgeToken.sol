@@ -35,7 +35,7 @@ contract BadgeToken is ERC721 {
         parts[2] = "</text></svg>";
 
         string memory json = Base64.encode(bytes(string(abi.encodePacked(
-            "{\"name\":\"Bagdge #",Strings.toString(tokenId),
+            "{\"name\":\"Badge #",Strings.toString(tokenId),
             "\",\"description\": \"Badge NFT with on-chain SVG image.\","
             "\"image\": \"data:image/svg+xml:base64,",
             Base64.encode(bytes(abi.encodePacked(parts[0], parts[1], parts[2]))),

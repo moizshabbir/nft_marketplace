@@ -2,8 +2,7 @@ import { expect } from "chai"
 import { Signer } from "ethers"
 import { ethers } from "hardhat"
 // import { BadgeToken } from  "../typechain"
-const BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-var base64 = require("base-x")(BASE64)
+var base64 = require("base-64")
 
 const _name='BadgeToken'
 const _symbol='BADGE'
@@ -44,8 +43,6 @@ describe("BadgeToken", function () {
     await badge.mintTo(address1)
 
     const tokenUri = await badge.tokenURI(1)
-    // console.log("tokenURI:")
-    // console.log(tokenUri)
 
     const tokenId = 1
     const data = base64.decode(tokenUri.slice(29))
